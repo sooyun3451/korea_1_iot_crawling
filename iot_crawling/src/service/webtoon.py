@@ -5,8 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-
-from src.repository.webtoon_repository import saveWebtoonDataList, saveAuthor
+from src.repository.webtoon_repository import save, saveWebtoonDataList, saveAuthor
 
 def run():
     webtoonDataList = [
@@ -75,6 +74,8 @@ def run():
     print(webtoonDataList)
     # saveWebtoonDataList(webtoonDataList)
     saveAuthor(webtoonDataList)
+
+
 
 
 def run3():
@@ -159,3 +160,11 @@ def run4():
             })
 
         products.append(categoryDict)
+    with open('products.json', 'w', encoding='utf-8') as f:
+        json.dump(products, f, ensure_ascii=False, indent=4)
+
+
+
+
+
+
